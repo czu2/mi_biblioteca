@@ -1,0 +1,38 @@
+<h1 class="text-center p-3">Nuevo Registro de Préstamo</h1>
+
+<div class="container bg-light p-5 border rounded">
+    <%= form_with(url: books_create_path, id:'create', local: true) do |f| %>
+
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Título Libro</label><br>
+                <%= f.text_field :title %>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Autor</label><br>
+                <%= f.text_field :author %>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Fecha Préstamo</label><br>
+                <%= f.date_field :borrowed_at %>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Fecha Devolución</label><br>
+                <%= f.date_field :returned_at %>
+            </div>
+
+            <div class="form-group mb-5">
+                <label for="exampleFormControlSelect1">Estado</label><br>
+                <%= select_tag :status, options_for_select([["Prestado",1],["En Estante",0]]) %>
+            </div>
+
+            <div>
+                <%= f.submit 'Guardar Registro' %>
+            </div>
+
+        </form>
+    <% end %>
+</div>
